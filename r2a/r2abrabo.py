@@ -34,6 +34,9 @@ class R2ABrabo(IR2A):
         # 1
         parsed = parse_mpd(msg.get_payload())
         self.qualidades = parsed.get_qi()
+        self.minimo = self.qualidades[0]
+        self.measured = self.qualidades[0]
+
 
         # 2
         self.measured_throughput = msg.get_bit_length() / (time.perf_counter() - self.request_time)
